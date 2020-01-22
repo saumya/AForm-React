@@ -1,8 +1,77 @@
 //
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 function Schedule1(){
+	//
+	const [docName,setDocName] = useState('nothing');
+	const [myDate,setMyDate] = useState('nothing');
+	const [isScheduleFixed,setScheduleFixed] = useState(false);
+	const [isAllFilled,setAllFormFilled] = useState(true);
+	//
+	//
+	//useEffect( ()=>{  } );
+	//useEffect(function(){});
+	//
+	useEffect( function(){
+		console.log('useEffect');
+
+		// hide the information message
+		if(isScheduleFixed){
+			setTimeout(function(){
+				setScheduleFixed(false);
+			},2000);
+		}
+		//
+	} );// useEffect
+	//
+	const handleChangeDr = (event)=>{
+		console.log('handleChangeDr');
+		console.log( event.target.value );
+		setDocName( event.target.value );
+
+		setScheduleFixed(false);
+	}
+	const handleChangeDate = (event)=>{
+		console.log('handleChangeDate');
+		console.log( event.target.value );
+		setMyDate( event.target.value );
+
+		setScheduleFixed(false);
+	}
+	//
+	const onScheduleClick = ()=>{
+		console.log('onScheduleClick');
+		console.log('docName',docName);
+		console.log('myDate',myDate);
+		if( (docName==='nothing') || (myDate==='nothing') ){
+			setAllFormFilled(false);
+		}else{
+			setScheduleFixed(true);
+			setAllFormFilled(true);
+		}
+	}
+	//
+	const showSuccessSchedule = ()=>{
+		return(
+			<article className="message is-success">
+			  <div className="message-body">
+			    Appointment fixed.
+			  </div>
+			</article>
+			);
+	}
+	const showAlertToFillAllForms = ()=>{
+		return(
+			<article className="message is-danger">
+			  <div className="message-body">
+			    Please choose both of your preference.
+			  </div>
+			</article>
+			);
+	}
+
+	//
 	return(
 
 		<div className="container">
@@ -17,12 +86,13 @@ function Schedule1(){
 						<label className="label">Doctor</label>
 						<div className="control">
 							<div className="select is-large">
-								<select>
-									<option>Dr. John Doe</option>
-									<option>Dr. Alexander Fox</option>
-									<option>Dr. Daniel Smith</option>
-									<option>Dr. Christopher Jones</option>
-									<option>Dr. William Davis</option>
+								<select onChange={handleChangeDr}>
+									<option value="nothing">Choose Doctor</option>
+									<option value="Dr. John Doe">Dr. John Doe</option>
+									<option value="Dr. Alexander Fox">Dr. Alexander Fox</option>
+									<option value="Dr. Daniel Smith">Dr. Daniel Smith</option>
+									<option value="Dr. Christopher Jones">Dr. Christopher Jones</option>
+									<option value="Dr. William Davis">Dr. William Davis</option>
 								</select>
 							</div>
 						</div>
@@ -32,14 +102,15 @@ function Schedule1(){
 						<label className="label">Date</label>
 						<div className="control">
 							<div className="select is-large">
-								<select>
-									<option>22 Jan 2020</option>
-									<option>23 Jan 2020</option>
-									<option>24 Jan 2020</option>
-									<option>25 Jan 2020</option>
-									<option>26 Jan 2020</option>
-									<option>27 Jan 2020</option>
-									<option>28 Jan 2020</option>
+								<select onChange={handleChangeDate}>
+									<option value="nothing">Choose Date</option>
+									<option value="22 Jan 2020">22 Jan 2020</option>
+									<option value="23 Jan 2020">23 Jan 2020</option>
+									<option value="24 Jan 2020">24 Jan 2020</option>
+									<option value="25 Jan 2020">25 Jan 2020</option>
+									<option value="26 Jan 2020">26 Jan 2020</option>
+									<option value="27 Jan 2020">27 Jan 2020</option>
+									<option value="28 Jan 2020">28 Jan 2020</option>
 								</select>
 							</div>
 						</div>
@@ -47,7 +118,7 @@ function Schedule1(){
 					<br/>
 					<div className="field">
 						<div className="control">
-							<button className="button is-large is-primary">Schedule</button>
+							<button className="button is-large is-primary" onClick={onScheduleClick}>Schedule</button>
 						</div>
 					</div>
 					
@@ -55,9 +126,13 @@ function Schedule1(){
 				</div>
 			</div>
 
+			{ ( isScheduleFixed ? showSuccessSchedule() : null ) }
+			{ ( isAllFilled ? null : showAlertToFillAllForms() ) }
+			
+
 		</div>
 
-		);
+		);// return
 }
 
 

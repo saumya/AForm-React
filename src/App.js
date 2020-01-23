@@ -7,7 +7,7 @@ import Scheduler1 from './components/scheduler1.comp';
 function App() {
   return (
     <div className="App">
-      <Scheduler1 />
+      <Scheduler1 name="Demo | " msg='Date & Doctor'/>
     </div>
   );
 }

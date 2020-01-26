@@ -16,15 +16,6 @@ const DoctorSelector = function(props){
 									return aa;
 								})
 							}
-							{
-								/*
-								<option value="Dr. John Doe">Dr. John Doe</option>
-								<option value="Dr. Alexander Fox">Dr. Alexander Fox</option>
-								<option value="Dr. Daniel Smith">Dr. Daniel Smith</option>
-								<option value="Dr. Christopher Jones">Dr. Christopher Jones</option>
-								<option value="Dr. William Davis">Dr. William Davis</option>
-								*/
-							}
 						</select>
 					</div>
 				</div>

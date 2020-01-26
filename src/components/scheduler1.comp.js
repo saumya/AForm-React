@@ -11,6 +11,9 @@ function Schedule1(props){
 	const [isScheduleFixed,setScheduleFixed] = useState(false);
 	const [isAllFilled,setAllFormFilled] = useState(true);
 	//
+	const aDates = ['26 Jan 2020','27 Jan 2020','28 Jan 2020','29 Jan 2020','30 Jan 2020','31 Jan 2020','01 Feb 2020'];
+	const aDoctors = ['Dr. John Doe', 'Dr. Alexander Fox', 'Dr. Daniel Smith', 'Dr. Christopher Jones', 'Dr. William Davis'];
+	//
 	//
 	//useEffect( ()=>{  } );
 	//useEffect(function(){});
@@ -84,9 +87,9 @@ function Schedule1(props){
 					<h1 className="title">Schedule</h1>
 					<h2 className="subtitle">Fix a day with your doctor.</h2>
 					<p>{props.name} {props.msg}</p>
-					<DoctorSelector handleChange={handleChangeDr} />
+					<DoctorSelector aDoctors={aDoctors} handleChange={handleChangeDr} />
 					<br />
-					<DateSelector handleChange={handleChangeDate} />
+					<DateSelector aDates={aDates} handleChange={handleChangeDate} />
 					<br/>
 					<div className="field">
 						<div className="control">

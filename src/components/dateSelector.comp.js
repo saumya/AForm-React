@@ -1,7 +1,8 @@
 //
 import React from 'react';
 //
-
+// props.sDates : An Array of Date Objects
+//
 const DateSelector = function(props){
 	return(
 			<div className="field">
@@ -11,8 +12,8 @@ const DateSelector = function(props){
 						<select onChange={props.handleChange}>
 							<option value="nothing">Choose Date</option>
 							{
-								props.aDates.map(function(item){
-									var aa = <option key={item} value={item}>{item}</option>;
+								props.aDates.map(function(item,index){
+									var aa = <option key={index} value={ item.toDateString() }>{ item.toDateString() }</option>;
 									return aa
 								})
 							}

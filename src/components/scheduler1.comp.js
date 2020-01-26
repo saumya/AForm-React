@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 //
 import DoctorSelector from './doctorSelector.comp';
 import DateSelector from './dateSelector.comp';
+//
+import Utils from '../utils/utils';
 
 function Schedule1(props){
 	//
@@ -11,9 +13,11 @@ function Schedule1(props){
 	const [isScheduleFixed,setScheduleFixed] = useState(false);
 	const [isAllFilled,setAllFormFilled] = useState(true);
 	//
-	const aDates = ['26 Jan 2020','27 Jan 2020','28 Jan 2020','29 Jan 2020','30 Jan 2020','31 Jan 2020','01 Feb 2020'];
+	//const aDates = ['26 Jan 2020','27 Jan 2020','28 Jan 2020','29 Jan 2020','30 Jan 2020','31 Jan 2020','01 Feb 2020'];
 	const aDoctors = ['Dr. John Doe', 'Dr. Alexander Fox', 'Dr. Daniel Smith', 'Dr. Christopher Jones', 'Dr. William Davis'];
 	//
+	//Utils.getNext7days(); //Array of Date()
+	const aDates = Utils.getNext7days();
 	//
 	//useEffect( ()=>{  } );
 	//useEffect(function(){});

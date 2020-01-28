@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import DoctorSelector from './doctorSelector.comp';
 import DateSelector from './dateSelector.comp';
 //
-import Utils from '../utils/utils';
+//import Utils from '../utils/utils';
 
 function Schedule1(props){
 	//
@@ -17,7 +17,7 @@ function Schedule1(props){
 	const aDoctors = ['Dr. John Doe', 'Dr. Alexander Fox', 'Dr. Daniel Smith', 'Dr. Christopher Jones', 'Dr. William Davis'];
 	//
 	//Utils.getNext7days(); //Array of Date()
-	const aDates = Utils.getNext7days();
+	//const aDates = Utils.getNext7days();
 	//
 	//useEffect( ()=>{  } );
 	//useEffect(function(){});
@@ -93,7 +93,7 @@ function Schedule1(props){
 					<p>{props.name} {props.msg}</p>
 					<DoctorSelector aDoctors={aDoctors} handleChange={handleChangeDr} />
 					<br />
-					<DateSelector aDates={aDates} handleChange={handleChangeDate} />
+					<DateSelector nextNumDays={7} handleChange={handleChangeDate} />
 					<br/>
 					<div className="field">
 						<div className="control">

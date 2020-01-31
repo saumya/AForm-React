@@ -30,6 +30,22 @@ const Utils =	{
 		}
 		//console.log( allDays );
 		return allDays;
+	},
+	getNextSomeDays : function ( numDays ){
+		//console.log('getNext7days');
+		//console.log('------------------ getNext7days -------------');
+		const today = new Date();
+		//console.log( 'today', today );
+		//console.log( allMonths() );
+		//console.log( today.getDate(), ':', allMonths()[today.getMonth()] );
+		var  i = 1;
+		var allDays = [];
+		for( i; i<=numDays; i++){
+			allDays.push( this.getNextDay( today, i) );
+			//console.log ( getNextDay(today,i) );
+		}
+		//console.log( allDays );
+		return allDays;
 	}
 };
 

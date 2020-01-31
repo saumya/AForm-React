@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 //import logo from './logo.svg';
 import './App.css';
 
+import WelcomeComp from './components/welcome.comp';
 import TopMenuComp from "./components/menuTop.comp";
 import Scheduler1 from './components/scheduler1.comp';
+import DoctorAppComp from './components/doctorApp.comp';
 
 function App() {
 	const [uiName,setUIName] = useState('noUI');
@@ -26,12 +28,12 @@ function App() {
 				 (
 					(uiName==='Doctor')
 					?
-					<div>Doctor</div>
+					<DoctorAppComp />
 					:
 					<Scheduler1 name="Demo | " msg='Date & Doctor'/>
 				 )
 				: 
-				<div>no ui</div> 
+				<WelcomeComp />
 			} 
 
 		</div>

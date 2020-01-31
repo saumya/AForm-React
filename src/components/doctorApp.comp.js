@@ -13,7 +13,35 @@ const DoctorAppComp = () => {
                     <p>
                         Displays the Schedule for the day. How many patients have to be checked in a day.
                     </p>
-                    <div> <strong>Work in progress</strong> </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <div className="box">
+                                    <div className="content">
+                                            <p className="title">32</p>
+                                            <p className="subtitle">Sat day</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="box">
+                                    <div className="content">
+                                            <p className="title">32</p>
+                                            <p className="subtitle">Sat day</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="box">
+                                    <div className="content">
+                                            <p className="title">32</p>
+                                            <p className="subtitle">Sat day</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </div>
         </div>

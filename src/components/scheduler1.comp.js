@@ -88,6 +88,9 @@ function Schedule1(props){
 			<div className="columns is-mobile is-centered">
 				<div className="column is-half">
 
+					{ ( isAllFilled ? null : showAlertToFillAllForms() ) }
+					{ ( isScheduleFixed ? showSuccessSchedule() : null ) }
+
 					<h1 className="title">Schedule</h1>
 					<h2 className="subtitle">Fix a day with your doctor.</h2>
 					<p>{props.name} {props.msg}</p>
@@ -103,10 +106,6 @@ function Schedule1(props){
 					
 				</div>
 			</div>
-
-			{ ( isScheduleFixed ? showSuccessSchedule() : null ) }
-			{ ( isAllFilled ? null : showAlertToFillAllForms() ) }
-			
 
 		</div>
 

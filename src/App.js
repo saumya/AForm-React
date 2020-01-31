@@ -18,23 +18,24 @@ function App() {
 		console.log('onDoctorApp');
 		setUIName('Doctor');
 	};
+	//
+	const renderChoosenUI = function(){
+		switch (uiName){
+			case 'Patient':
+				return ( <Scheduler1 name="Demo | " msg='Date & Doctor'/> );
+				break;
+			case 'Doctor':
+				return ( <DoctorAppComp /> );
+				break;
+			default:
+				return ( <WelcomeComp /> );
+		}
+	}
+	//
 	return (
 		<div className="App">
 			<TopMenuComp onPatientApp={onPatientApp} onDoctorApp={onDoctorApp}  />
-			{ /* <Scheduler1 name="Demo | " msg='Date & Doctor'/>  */ }
-			{
-				(uiName !== 'noUI') 
-				? 
-				 (
-					(uiName==='Doctor')
-					?
-					<DoctorAppComp />
-					:
-					<Scheduler1 name="Demo | " msg='Date & Doctor'/>
-				 )
-				: 
-				<WelcomeComp />
-			} 
+			{ renderChoosenUI() } 
 
 		</div>
 	);

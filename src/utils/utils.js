@@ -46,6 +46,15 @@ const Utils =	{
 		}
 		//console.log( allDays );
 		return allDays;
+	},
+	getSomeRandomNumbers : function( numNumbers ){
+		var  i = 1;
+		var allNums = [];
+		var minNum = 5;
+		for( i; i<=numNumbers; i++){
+			allNums.push( minNum + Math.ceil( Math.random() * 100 ) );
+		}
+		return allNums;
 	}
 };
 

@@ -9,8 +9,9 @@ import ListTile1Comp from './listTile1.comp';
 
 const DoctorAppComp = () => {
 
-    const aDays = Utils.getNextSomeDays(7);
-    const aNumPatients = [24,35,68,21,30,20,46];
+    const numNextDays = 7;
+    const aDays = Utils.getNextSomeDays( numNextDays );
+    const aNumPatients = Utils.getSomeRandomNumbers( numNextDays );
     
     const renderDays = ()=>{
         var aList = aDays.map(function(day,index){

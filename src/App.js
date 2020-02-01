@@ -20,16 +20,18 @@ function App() {
 	};
 	//
 	const renderChoosenUI = function(){
+		var newComp = null;
 		switch (uiName){
 			case 'Patient':
-				return ( <Scheduler1 name="Demo | " msg='Date & Doctor'/> );
+				newComp = ( <Scheduler1 name="Demo | " msg='Date & Doctor'/> );
 				break;
 			case 'Doctor':
-				return ( <DoctorAppComp /> );
+				newComp = ( <DoctorAppComp /> );
 				break;
 			default:
-				return ( <WelcomeComp /> );
+				newComp = ( <WelcomeComp /> );
 		}
+		return newComp;
 	}
 	//
 	return (

@@ -3,7 +3,6 @@
 //
 import React from 'react';
 
-import ListTileComp from './listTile1.comp';
 import Utils from '../utils/utils';
 import ListTile1Comp from './listTile1.comp';
 

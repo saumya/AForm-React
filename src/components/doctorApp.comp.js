@@ -10,13 +10,19 @@ const DoctorAppComp = () => {
 
     const numNextDays = 7;
     const aDays = Utils.getNextSomeDays( numNextDays );
-    const aNumPatients = Utils.getSomeRandomNumbers( numNextDays );
+    //const aNumPatients = Utils.getSomeRandomNumbers( numNextDays );
+    //
+    const aMorningPatients = Utils.getSomeRandomNumbers(numNextDays);
+    const aEveningPatients = Utils.getSomeRandomNumbers(numNextDays);
     
     const renderDays = ()=>{
         var aList = aDays.map(function(day,index){
+            const nM = aMorningPatients[index];
+            const nE = aEveningPatients[index];
+
             return (
                 <li key={index}>
-                    <ListTile1Comp numPatients={aNumPatients[index]} sDate={day.toDateString()} />
+                    <ListTile1Comp numMorningPatients={nM} numEveningPatients={nE} sDate={day.toDateString()} />
                 </li>
             )
         })

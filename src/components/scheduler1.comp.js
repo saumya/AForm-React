@@ -81,7 +81,7 @@ function Schedule1(props){
 		return(
 			<article className="message is-danger">
 			  <div className="message-body">
-			    Please choose all your preferences.
+			    Choose all your preferences.
 			  </div>
 			</article>
 			);

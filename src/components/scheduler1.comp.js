@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 //
 import DoctorSelector from './doctorSelector.comp';
 import DateSelector from './dateSelector.comp';
+import SessionSelector from './sessionSelector.comp';
 //
 //import Utils from '../utils/utils';
 
@@ -10,6 +11,7 @@ function Schedule1(props){
 	//
 	const [docName,setDocName] = useState('nothing');
 	const [myDate,setMyDate] = useState('nothing');
+	const [mySession,setMySession] = useState('nothing');
 	const [isScheduleFixed,setScheduleFixed] = useState(false);
 	const [isAllFilled,setAllFormFilled] = useState(true);
 	//
@@ -48,12 +50,17 @@ function Schedule1(props){
 
 		setScheduleFixed(false);
 	}
+	const handleChangeTiming = (event) => {
+		console.log( event.target.value );
+		setMySession(event.target.value);
+		setScheduleFixed(false);
+	}
 	//
 	const onScheduleClick = ()=>{
 		console.log('onScheduleClick');
 		console.log('docName',docName);
 		console.log('myDate',myDate);
-		if( (docName==='nothing') || (myDate==='nothing') ){
+		if( (docName==='nothing') || (myDate==='nothing') || (mySession==='nothing') ){
 			setAllFormFilled(false);
 		}else{
 			setScheduleFixed(true);
@@ -74,7 +81,7 @@ function Schedule1(props){
 		return(
 			<article className="message is-danger">
 			  <div className="message-body">
-			    Please choose both of your preference.
+			    Please choose all your preferences.
 			  </div>
 			</article>
 			);
@@ -98,6 +105,8 @@ function Schedule1(props){
 					<br />
 					<DateSelector nextNumDays={7} handleChange={handleChangeDate} />
 					<br/>
+					<SessionSelector handleChange={handleChangeTiming} />
+					<br />
 					<div className="field">
 						<div className="control">
 							<button className="button is-large is-primary" onClick={onScheduleClick}>Schedule</button>

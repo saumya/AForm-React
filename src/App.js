@@ -23,7 +23,7 @@ function App() {
 		var newComp = null;
 		switch (uiName){
 			case 'Patient':
-				newComp = ( <Scheduler1 name="Demo | " msg='Date & Doctor'/> );
+				newComp = ( <Scheduler1 name="Appointment | " msg='Date & Doctor'/> );
 				break;
 			case 'Doctor':
 				newComp = ( <DoctorAppComp /> );
